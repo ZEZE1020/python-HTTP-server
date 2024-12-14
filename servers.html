@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to Servers and HTTP</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Introduction to Servers and HTTP</h1>
+
+  <h2>What are Servers?</h2>
+  <p>Servers are computers or systems that provide resources, data, services, or programs to other computers, known as
+    clients, over a network. Servers can serve various functions, including:</p>
+  <ul>
+    <li><strong>Web Servers:</strong> Host websites and serve web pages to clients.</li>
+    <li><strong>File Servers:</strong> Store and manage files for network users.</li>
+    <li><strong>Database Servers:</strong> Provide database services to other computers or applications.</li>
+    <li><strong>Application Servers:</strong> Run specific applications for client computers.</li>
+  </ul>
+  <p>Servers play a crucial role in networked computing environments, allowing multiple clients to access shared
+    resources efficiently.</p>
+
+  <h2>What are HTTP Servers?</h2>
+  <p>HTTP (Hypertext Transfer Protocol) servers are servers that communicate over the web using the HTTP protocol. HTTP
+    servers handle requests from clients (usually web browsers) and serve web pages or other resources in response.
+    Here’s how an HTTP server works:</p>
+  <ul>
+    <li>The client (web browser) sends an HTTP request to the server.</li>
+    <li>The server processes the request and retrieves the requested resource (e.g., an HTML page, image, or file).</li>
+    <li>The server sends an HTTP response back to the client, including the requested resource.</li>
+    <li>The client displays the resource to the user.</li>
+  </ul>
+
+  <h2>Difference Between HTTP and HTTPS Servers</h2>
+  <p>HTTPS (Hypertext Transfer Protocol Secure) servers are HTTP servers that use encryption to secure data transfer.
+    The main differences between HTTP and HTTPS are:</p>
+  <ul>
+    <li><strong>Security:</strong> HTTP is unsecured, while HTTPS uses SSL/TLS encryption to secure data transfer
+      between the client and server.</li>
+    <li><strong>Data Integrity:</strong> HTTPS ensures that the data sent between the client and server is not tampered
+      with during transit.</li>
+    <li><strong>Confidentiality:</strong> HTTPS provides confidentiality by encrypting the data, making it unreadable to
+      unauthorized parties.</li>
+    <li><strong>SSL Certificate:</strong> HTTPS requires a valid SSL certificate, which verifies the identity of the
+      website and enables secure connections.</li>
+  </ul>
+  <p>Using HTTPS is essential for protecting sensitive information, such as login credentials, payment details, and
+    personal data, transmitted over the web.</p>
+
+  <h2>Creating Python HTTP Servers</h2>
+  <p>You can create a simple HTTP server in Python using the built-in <code>http.server</code> module. Here’s a
+    step-by-step guide:</p>
+
+  <h3>Step 1: Import the Required Modules</h3>
+  <p>First, import the necessary modules:</p>
+  <pre><code>import http.server
+import socketserver</code></pre>
+
+  <h3>Step 2: Define the Port and Handler</h3>
+  <p>Next, define the port number and the request handler:</p>
+  <pre><code>PORT = 8000
+Handler = http.server.SimpleHTTPRequestHandler</code></pre>
+
+  <h3>Step 3: Create and Start the Server</h3>
+  <p>Create the server using the <code>socketserver.TCPServer</code> class and start it:</p>
+  <pre><code>with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("Serving at port", PORT)
+    httpd.serve_forever()</code></pre>
+  <p>This code creates an HTTP server that listens on port 8000 and serves files from the current directory. To run the
+    server, save the code to a file named <code>server.py</code> and execute it using Python:</p>
+  <pre><code>python server.py</code></pre>
+  <p>Once the server is running, you can access it in your web browser by navigating to
+    <code>http://localhost:8000</code>.</p>
+
+  <h2>How HTTP Servers Work</h2>
+  <p>Here’s a detailed explanation of how HTTP servers work:</p>
+  <ul>
+    <li><strong>Client Sends Request:</strong> The client (e.g., a web browser) sends an HTTP request to the server.
+      This request includes the method (e.g., GET, POST), the URL, headers, and optionally a body.</li>
+    <li><strong>Server Processes Request:</strong> The server receives the request and processes it. It determines the
+      requested resource, checks permissions, and performs any necessary operations (e.g., querying a database).</li>
+    <li><strong>Server Sends Response:</strong> The server generates an HTTP response, which includes a status code
+      (e.g., 200 OK, 404 Not Found), headers, and the body (e.g., HTML content, images). The server sends this response
+      back to the client.</li>
+    <li><strong>Client Renders Response:</strong> The client receives the response and renders the content. For web
+      pages, this includes displaying the HTML, applying styles, and executing scripts.</li>
+  </ul>
+  <p>HTTP is a stateless protocol, meaning each request is independent, and the server does not retain information about
+    previous requests. This simplicity makes HTTP efficient and scalable but requires additional mechanisms (e.g.,
+    cookies, sessions) to maintain state between requests.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+/* General styles for the body and text */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header styles */
+h1 {
+  color: #0056b3;
+}
+
+h2 {
+  color: #007bff;
+}
+
+h3 {
+  color: #0056b3;
+}
+
+/* Paragraph and list styles */
+p,
+ul {
+  line-height: 1.6;
+}
+
+ul {
+  margin: 0;
+  padding: 0 20px;
+  list-style-type: none;
+}
+
+/* Container styles for sections */
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Styles for code blocks */
+.code-block {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
